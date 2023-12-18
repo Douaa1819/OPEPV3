@@ -12,6 +12,7 @@
 </head>
 
 <body style="background-color: #132A13 ">
+
     <section class="sec1 ">
         <div class="overlay" id="overlay"></div>
         <!-- Section: Design Block -->

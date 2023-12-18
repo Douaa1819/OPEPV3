@@ -1,6 +1,7 @@
 <?php
-require_once 'db.php';
 
+
+require_once '../config/db.php';
 class Database {
     private static $instance;
     private $connection;
@@ -20,7 +21,35 @@ class Database {
     public function getConnection() {
         return $this->connection;
     }
-    
 }
-
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

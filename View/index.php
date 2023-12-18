@@ -1,5 +1,12 @@
 <?php
-include("../controller/inscription.php");
+require_once '../config/conn.php'; // Inclure le fichier avec la définition de la classe Database
+require_once '../Model/utilisateurs.php';
+require_once '../controller/inscription.php';
+
+$utilisateurModel = new UtilisateurModel($connection);
+$inscriptionController = new InscriptionController($utilisateurModel);
+
+$inscriptionController->traiterFormulaireInscription();
 ?>
 <!DOCTYPE html>
 <html lang="en">
