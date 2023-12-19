@@ -1,8 +1,12 @@
 <?php
 require_once '../controller/login.php';
-require_once '../config/conn.php'; // Inclure le fichier avec la définition de la classe Database
+require_once '../config/conn.php';
 require_once '../Model/utilisateurs.php';
 
+$traitementModel = new TraitementModel($connection);
+$traitementController = new TraitementController($traitementModel);
+
+$traitementController->traiterFormulaireConnexion();
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +62,7 @@ require_once '../Model/utilisateurs.php';
                                 </button>
 
                                 <!-- Inscription button -->
-                                <a href="/index.php">
+                                <a href="index.php">
                                     S'inscrire
                                 </a>
                             </form>

@@ -17,7 +17,7 @@ class UtilisateurModel {
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':mdp', $mdp);
 
-        // Exécution de la requête
+       
         if ($stmt->execute()) {
             return $this->connection->lastInsertId();
         } else {
@@ -34,7 +34,7 @@ class TraitementModel {
     }
 
     public function verifierConnexion($emailConn, $mdpConn) {
-        // session_start();
+       // session_start();
         $query = "SELECT r.nomRole, u.idUtl
                   FROM utilisateurs u
                   JOIN roles r ON u.idUtl = r.idUtl
@@ -45,7 +45,6 @@ class TraitementModel {
         $stmt->bindParam(':mdp', $mdpConn);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
         if ($row['nomRole'] == 'admin') {
             $_SESSION['idUser'] = $row['idUtl'];
             header('location: dashbord.php');

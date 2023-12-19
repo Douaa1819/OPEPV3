@@ -1,5 +1,8 @@
+
 <?php
-require_once '../config/db.php';
+
+require_once "../config/conn.php"; 
+
 class PlanteModel {
     private $conn;
 
@@ -7,29 +10,14 @@ class PlanteModel {
         $this->conn = $conn;
     }
 
-    public function getPlantes($start, $limit, $categoryFilter = "", $search = "") {
-        $filter = "";
-        if (!empty($categoryFilter)) {
-            $filter = "WHERE idCategorie = $categoryFilter";
-        }
+    public function ajouterPlante($nomPlante, $imagePlante, $descriptionPlante, $stockPlante, $prix, $idCategorie) {
+        $query = "INSERT INTO plantes (nomPlante, imagePlante, descriptionPlante, stock, prix, idCategorie) 
+                  VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$nomPlante, $imagePlante, $descriptionPlante, $stockPlante, $prix, $idCategorie]);
 
-        if (!empty($search)) {
-            $filter = "WHERE nomPlante LIKE '%$search%'";
-        }
-
-        $plantesQuery = $this->conn->query("SELECT * FROM plantes $filter LIMIT $start, $limit");
-        return $plantesQuery;
-    }
-
-    public function getTotalPlantes() {
-        $result = $this->conn->query("SELECT COUNT(idPlante) AS total FROM plantes");
-        $row = $result->fetch_assoc();
-        return $row["total"];
+        return $stmt->rowCount() > 0; 
     }
 }
-
 ?>
-?>
-
-
 ?>

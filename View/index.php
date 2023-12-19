@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../config/conn.php'; // Inclure le fichier avec la définition de la classe Database
+require_once '../config/conn.php'; 
 require_once '../Model/utilisateurs.php';
 require_once '../controller/inscription.php';
 
@@ -69,7 +69,7 @@ $inscriptionController->traiterFormulaireInscription();
                                     S'inscrire
                                 </button>
                                 <!-- Inscription button -->
-                                <a href="index.php" >
+                                <a href="login.php" >
                                     Se connecter
                                 </a>
                             </form>
