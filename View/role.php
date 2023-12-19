@@ -1,3 +1,19 @@
+
+
+<?php
+session_start();
+require_once '../config/conn.php';
+require_once '../Model/roles.php';
+require_once '../controller/role.php';
+
+$roleModel = new RoleModel($connection);
+$roleController = new RoleController($roleModel);
+$roleController->traiterFormulaireRole();
+$userId = $_GET['id']; 
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +21,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>role</title>
 </head>
 
@@ -32,15 +48,15 @@
                         <div class="card-body px-4 py-5 px-md-5">
 
                             <!-- --------------------------------------------------Form_Role -------------------------------------------->
-                            <form  method="post" class="d-flex  flex-column   justify-content-center">
-                            <label for="role">Sélectionnez un rôle :</label>
-                            <select name="role" id="role" style="height: 2.5VW;">
-                                <option value="client">Client</option>
-                                <option value="admin">Admin</option>
-                            </select>
+                            <form method="post" class="d-flex flex-column justify-content-center  "  >
+                              <label for="role">Sélectionnez un rôle :</label>
+                             <select name="role" id="role" style="height: 2.5vw;">
+                               <option value="client">Client</option>
+                                 <option value="admin">Admin</option>
+                                </select>
 
-                            <button type="submit" name="submitRole" class="btn btn-block mb-4 mt-4" style="color:white; background-color: #31572C; width: 12VW">Terminer</button>
-                        </form>
+                                            <button type="submit" name="submitRole" class="btn btn-block mb-4 mt-4" style="color:white; background-color: #31572C; width: 12vw">Terminer</button>
+                                        </form>
                             <!-- ------------------------------------------------------Fin ------------------------------------------------------------->
 
                         </div>

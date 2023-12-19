@@ -6,7 +6,6 @@ require_once '../Model/utilisateurs.php';
 
 class InscriptionController {
     private $utilisateurModel;
-
     public function __construct($utilisateurModel) {
         $this->utilisateurModel = $utilisateurModel;
     }
@@ -22,16 +21,23 @@ class InscriptionController {
         }
     }
 
-    private function inscriptionUtilisateur($nom, $prenom, $email, $mdp) {
+
+    
+    public function inscriptionUtilisateur($nom, $prenom, $email, $mdp) {
+        // Appel méthode
         $lastUserId = $this->utilisateurModel->inscription($nom, $prenom, $email, $mdp);
+    
         if ($lastUserId) {
-            header("Location: role.php?id=$lastUserId");
+            $_SESSION['idUser'] = $lastUserId;
+            // Inscription réussie, wa sir la page "role" m3al'ID de l'utilisateur
+            header("location:role.php?id=$lastUserId");
+            exit; 
         } else {
-            echo "<script>alert('Remplir tous les champs')</script>";
+            echo "<script>alert('Erreur lors de l\'inscription. Veuillez remplir tous les champs.')</script>";
         }
     }
-}
-?>
+    
+    }
 
 
 
@@ -48,22 +54,4 @@ class InscriptionController {
 
 
 
-<!-- php
-require_once("../Model/utilisateurs.php");
-require_once("../config/conn.php");
-if (isset($_POST['submitInsc'])) {
-
-$nom = $_POST["nomInsc"];
-$prenom = $_POST["prenomInsc"];
-$email = $_POST["emailInsc"];
-$mdp = $_POST["mdpInsc"];}
-
-
-
-$Signup=new Inscription($nom,$prenom,$email,$mdp)
-$Signup->signupUser();
-
-//goo bacck
-header("location: ../View/index.php?error=none")
-  -->
-
+//

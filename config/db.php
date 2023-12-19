@@ -11,18 +11,14 @@ define('password', '');
 
 
 
-// Inclure le fichier contenant la classe Database
 require_once 'conn.php'; 
 
 
 
  try {
-    // Obtenez une instance de la classe Database
     $db = Database::getInstance();
-    // Obtenez la connexion à la base de données
     $connection = $db->getConnection();
 
-    // Si vous arrivez jusqu'ici sans lever d'exception, la connexion est établie
  } catch (PDOException $e) {
     echo  $e->getMessage();
 } 

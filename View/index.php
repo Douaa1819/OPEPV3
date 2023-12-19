@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../config/conn.php'; // Inclure le fichier avec la définition de la classe Database
 require_once '../Model/utilisateurs.php';
 require_once '../controller/inscription.php';
@@ -15,7 +16,7 @@ $inscriptionController->traiterFormulaireInscription();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>inscription</title>
 </head>
 
@@ -42,7 +43,7 @@ $inscriptionController->traiterFormulaireInscription();
                         <div class="card-body px-4 py-5 px-md-5">
 
                             <!-- --------------------------------------------------Form_Inscription -------------------------------------------->
-                            <form method="POST" id="_______inscriptionForm2" action="">
+                            <form method="POST" >
                                 <!-- nom input -->
                                 <div class="form-outline mb-4">
                                     <input type="text" name="nomInsc" class="form-control" placeholder="Nom" />
@@ -67,7 +68,6 @@ $inscriptionController->traiterFormulaireInscription();
                                 <button type="submit" name="submitInsc" id="submitInsc" class="btn btn-block mb-4" style="background-color: #132A13; color:white" >
                                     S'inscrire
                                 </button>
-
                                 <!-- Inscription button -->
                                 <a href="index.php" >
                                     Se connecter
