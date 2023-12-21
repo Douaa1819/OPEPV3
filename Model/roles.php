@@ -1,6 +1,7 @@
 <?php
 
 require_once '../config/db.php';
+
 class RoleModel {
     private $connection;
 

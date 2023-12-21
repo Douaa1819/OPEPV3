@@ -12,8 +12,7 @@ class RoleController {
     public function traiterFormulaireRole() {
         
 
-        // Vérifier si l'utilisateur est connecté
-    
+     
             
             if (isset($_POST['submitRole']) && isset($_SESSION['idUser'])) {
                 

@@ -35,10 +35,10 @@ class TraitementModel {
 
     public function verifierConnexion($emailConn, $mdpConn) {
        // session_start();
-        $query = "SELECT r.nomRole, u.idUtl
-                  FROM utilisateurs u
+        $query = "M utilisateurs u
                   JOIN roles r ON u.idUtl = r.idUtl
-                  WHERE u.emailUtl = :email AND u.mdpUtl = :mdp";
+                  WHERE u.emailUtl = :email AND u.mdpUtl = :mdp"SELECT r.nomRole, u.idUtl
+                  FRO;
 
         $stmt = $this->connection->prepare($query);
         $stmt->bindParam(':email', $emailConn);

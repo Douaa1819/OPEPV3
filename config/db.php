@@ -1,8 +1,7 @@
 
 <?php
-
+require_once '../config/conn.php'; 
 define('host', 'localhost');
-
 define('database', 'opep2');
 
 define('user', 'root');
@@ -11,11 +10,7 @@ define('password', '');
 
 
 
-require_once 'conn.php'; 
-
-
-
- try {
+try {
     $db = Database::getInstance();
     $connection = $db->getConnection();
 
